@@ -21,22 +21,27 @@ struct LandmarkDetail: View {
         ScrollView {
             MapView(coordinate: landmark.locationCoordinate)
                 .frame(height: 300)
+                .accessibilityIdentifier("landmarkDetail_map")
 
             CircleImage(image: landmark.image)
                 .offset(y: -130)
                 .padding(.bottom, -130)
+                .accessibilityIdentifier("landmarkDetail_circleImage")
 
             VStack(alignment: .leading) {
                 HStack {
                     Text(landmark.name)
                         .font(.title)
+                        .accessibilityIdentifier("landmarkDetail_name")
                     FavoriteButton(isSet: $modelData.landmarks[landmarkIndex].isFavorite)
                 }
 
                 HStack {
                     Text(landmark.park)
+                        .accessibilityIdentifier("landmarkDetail_park")
                     Spacer()
                     Text(landmark.state)
+                        .accessibilityIdentifier("landmarkDetail_state")
                 }
                 .font(.subheadline)
                 .foregroundStyle(.secondary)
@@ -45,10 +50,13 @@ struct LandmarkDetail: View {
 
                 Text("About \(landmark.name)")
                     .font(.title2)
+                    .accessibilityIdentifier("landmarkDetail_aboutTitle")
                 Text(landmark.description)
+                    .accessibilityIdentifier("landmarkDetail_description")
             }
             .padding()
         }
+        .accessibilityIdentifier("landmarkDetail_scrollView")
         .navigationTitle(landmark.name)
         .navigationBarTitleDisplayMode(.inline)
     }

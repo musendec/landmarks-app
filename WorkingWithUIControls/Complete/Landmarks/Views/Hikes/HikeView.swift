@@ -25,11 +25,14 @@ struct HikeView: View {
             HStack {
                 HikeGraph(hike: hike, path: \.elevation)
                     .frame(width: 50, height: 30)
+                    .accessibilityIdentifier("hikeView_\(hike.name)_graph")
 
                 VStack(alignment: .leading) {
                     Text(hike.name)
                         .font(.headline)
+                        .accessibilityIdentifier("hikeView_\(hike.name)_name")
                     Text(hike.distanceText)
+                        .accessibilityIdentifier("hikeView_\(hike.name)_distance")
                 }
 
                 Spacer()
@@ -46,6 +49,7 @@ struct HikeView: View {
                         .scaleEffect(showDetail ? 1.5 : 1)
                         .padding()
                 }
+                .accessibilityIdentifier("hikeView_\(hike.name)_detailButton")
             }
 
             if showDetail {
@@ -53,6 +57,7 @@ struct HikeView: View {
                     .transition(.moveAndFade)
             }
         }
+        .accessibilityIdentifier("hikeView_\(hike.name)")
     }
 }
 

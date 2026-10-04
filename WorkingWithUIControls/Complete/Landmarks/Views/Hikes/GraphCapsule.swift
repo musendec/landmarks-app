@@ -27,6 +27,7 @@ struct GraphCapsule: View, Equatable {
             .fill(color)
             .frame(height: height * heightRatio)
             .offset(x: 0, y: height * -offsetRatio)
+            .accessibilityIdentifier("graphCapsule_\(index)")
     }
 }
 

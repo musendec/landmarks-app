@@ -28,6 +28,7 @@ struct Badge: View {
             }
         }
         .scaledToFit()
+        .accessibilityIdentifier("badge")
     }
 }
 

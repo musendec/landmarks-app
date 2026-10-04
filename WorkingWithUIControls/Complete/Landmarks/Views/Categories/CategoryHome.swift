@@ -20,12 +20,14 @@ struct CategoryHome: View {
                     .frame(height: 200)
                     .clipped()
                     .listRowInsets(EdgeInsets())
+                    .accessibilityIdentifier("categoryHome_featuredImage")
 
                 ForEach(modelData.categories.keys.sorted(), id: \.self) { key in
                     CategoryRow(categoryName: key, items: modelData.categories[key]!)
                 }
                 .listRowInsets(EdgeInsets())
             }
+            .accessibilityIdentifier("categoryHome_list")
             .listStyle(.inset)
             .navigationTitle("Featured")
             .toolbar {
@@ -34,13 +36,16 @@ struct CategoryHome: View {
                 } label: {
                     Label("User Profile", systemImage: "person.crop.circle")
                 }
+                .accessibilityIdentifier("categoryHome_profileButton")
             }
             .sheet(isPresented: $showingProfile) {
                 ProfileHost()
                     .environment(modelData)
+                    .accessibilityIdentifier("categoryHome_profileSheet")
             }
         } detail: {
             Text("Select a Landmark")
+                .accessibilityIdentifier("categoryHome_detailPlaceholder")
         }
     }
 }

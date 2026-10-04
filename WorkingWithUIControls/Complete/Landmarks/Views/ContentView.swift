@@ -22,13 +22,16 @@ struct ContentView: View {
                     Label("Featured", systemImage: "star")
                 }
                 .tag(Tab.featured)
+                .accessibilityIdentifier("contentView_featuredTab")
 
             LandmarkList()
                 .tabItem {
                     Label("List", systemImage: "list.bullet")
                 }
                 .tag(Tab.list)
+                .accessibilityIdentifier("contentView_listTab")
         }
+        .accessibilityIdentifier("contentView_tabView")
     }
 }
 

@@ -17,6 +17,7 @@ struct CategoryRow: View {
                 .font(.headline)
                 .padding(.leading, 15)
                 .padding(.top, 5)
+                .accessibilityIdentifier("categoryRow_\(categoryName)_title")
 
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(alignment: .top, spacing: 0) {
@@ -26,11 +27,14 @@ struct CategoryRow: View {
                         } label: {
                             CategoryItem(landmark: landmark)
                         }
+                        .accessibilityIdentifier("categoryRow_\(categoryName)_link_\(landmark.name)")
                     }
                 }
             }
             .frame(height: 185)
+            .accessibilityIdentifier("categoryRow_\(categoryName)_scroll")
         }
+        .accessibilityIdentifier("categoryRow_\(categoryName)")
     }
 }
 

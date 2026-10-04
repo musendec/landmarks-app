@@ -53,6 +53,7 @@ struct HikeGraph: View {
                 .offset(x: 0, y: proxy.size.height * heightRatio)
             }
         }
+        .accessibilityIdentifier("hikeGraph")
     }
 }
 

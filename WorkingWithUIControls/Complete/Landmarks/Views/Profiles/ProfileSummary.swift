@@ -17,16 +17,21 @@ struct ProfileSummary: View {
                 Text(profile.username)
                     .bold()
                     .font(.title)
+                    .accessibilityIdentifier("profileSummary_username")
 
                 Text("Notifications: \(profile.prefersNotifications ? "On": "Off" )")
+                    .accessibilityIdentifier("profileSummary_notifications")
                 Text("Seasonal Photos: \(profile.seasonalPhoto.rawValue)")
-                Text("Goal Date: ") + Text(profile.goalDate, style: .date)
+                    .accessibilityIdentifier("profileSummary_seasonalPhoto")
+                (Text("Goal Date: ") + Text(profile.goalDate, style: .date))
+                    .accessibilityIdentifier("profileSummary_goalDate")
 
                 Divider()
 
                 VStack(alignment: .leading) {
                     Text("Completed Badges")
                         .font(.headline)
+                        .accessibilityIdentifier("profileSummary_badgesHeading")
 
                     ScrollView(.horizontal) {
                         HStack {
@@ -39,6 +44,7 @@ struct ProfileSummary: View {
                         }
                         .padding(.bottom)
                     }
+                    .accessibilityIdentifier("profileSummary_badgesScroll")
                 }
 
                 Divider()
@@ -46,12 +52,14 @@ struct ProfileSummary: View {
                 VStack(alignment: .leading) {
                     Text("Recent Hikes")
                         .font(.headline)
+                        .accessibilityIdentifier("profileSummary_hikesHeading")
 
                     HikeView(hike: modelData.hikes[0])
                 }
             }
             .padding()
         }
+        .accessibilityIdentifier("profileSummary_scrollView")
     }
 }
 

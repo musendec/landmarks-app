@@ -20,9 +20,11 @@ struct ProfileHost: View {
                         draftProfile = modelData.profile
                         editMode?.animation().wrappedValue = .inactive
                     }
+                    .accessibilityIdentifier("profileHost_cancelButton")
                 }
                 Spacer()
                 EditButton()
+                    .accessibilityIdentifier("profileHost_editButton")
             }
 
             if editMode?.wrappedValue == .inactive {
@@ -38,6 +40,7 @@ struct ProfileHost: View {
             }
         }
         .padding()
+        .accessibilityIdentifier("profileHost_container")
     }
 }
 

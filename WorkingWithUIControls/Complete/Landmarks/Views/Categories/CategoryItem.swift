@@ -17,11 +17,14 @@ struct CategoryItem: View {
                 .resizable()
                 .frame(width: 155, height: 155)
                 .cornerRadius(5)
+                .accessibilityIdentifier("categoryItem_\(landmark.name)_image")
             Text(landmark.name)
                 .foregroundStyle(.primary)
                 .font(.caption)
+                .accessibilityIdentifier("categoryItem_\(landmark.name)_text")
         }
         .padding(.leading, 15)
+        .accessibilityIdentifier("categoryItem_\(landmark.name)")
     }
 }
 

@@ -13,6 +13,7 @@ struct MapView: View {
 
     var body: some View {
         Map(position: .constant(.region(region)))
+            .accessibilityIdentifier("mapView")
     }
 
     private var region: MKCoordinateRegion {

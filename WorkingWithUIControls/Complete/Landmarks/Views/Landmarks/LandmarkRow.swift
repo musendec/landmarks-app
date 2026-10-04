@@ -15,15 +15,19 @@ struct LandmarkRow: View {
             landmark.image
                 .resizable()
                 .frame(width: 50, height: 50)
+                .accessibilityIdentifier("landmarkRow_\(landmark.name)_image")
             Text(landmark.name)
+                .accessibilityIdentifier("landmarkRow_\(landmark.name)_text")
 
             Spacer()
 
             if landmark.isFavorite {
                 Image(systemName: "star.fill")
                     .foregroundStyle(.yellow)
+                    .accessibilityIdentifier("landmarkRow_\(landmark.name)_favoriteIcon")
             }
         }
+        .accessibilityIdentifier("landmarkRow_\(landmark.name)")
     }
 }
 

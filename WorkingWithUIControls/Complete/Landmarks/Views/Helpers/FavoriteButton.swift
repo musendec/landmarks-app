@@ -18,6 +18,7 @@ struct FavoriteButton: View {
                 .labelStyle(.iconOnly)
                 .foregroundStyle(isSet ? .yellow : .gray)
         }
+        .accessibilityIdentifier("favoriteButton")
     }
 }
 

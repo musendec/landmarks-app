@@ -23,6 +23,7 @@ struct LandmarkList: View {
                 Toggle(isOn: $showFavoritesOnly) {
                     Text("Favorites only")
                 }
+                .accessibilityIdentifier("landmarkList_favoritesToggle")
 
                 ForEach(filteredLandmarks) { landmark in
                     NavigationLink {
@@ -30,12 +31,15 @@ struct LandmarkList: View {
                     } label: {
                         LandmarkRow(landmark: landmark)
                     }
+                    .accessibilityIdentifier("landmarkList_link_\(landmark.name)")
                 }
             }
+            .accessibilityIdentifier("landmarkList_list")
             .animation(.default, value: filteredLandmarks)
             .navigationTitle("Landmarks")
         } detail: {
             Text("Select a Landmark")
+                .accessibilityIdentifier("landmarkList_detailPlaceholder")
         }
     }
 }
